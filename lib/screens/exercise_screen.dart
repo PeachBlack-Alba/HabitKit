@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:habit_kit/constants.dart';
 import 'package:habit_kit/widgets/bottom_nav_bar.dart';
 import 'package:habit_kit/widgets/search_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ExerciseScreen extends StatelessWidget {
   @override
@@ -48,7 +49,6 @@ class ExerciseScreen extends StatelessWidget {
                       child: Text(
                         "Track your fitness level.",
                         style: TextStyle(fontWeight: FontWeight.bold, color: kActiveIconColor),
-
                       ),
                     ),
                     SizedBox(
@@ -62,27 +62,27 @@ class ExerciseScreen extends StatelessWidget {
                         SeassionCard(
                           sessionNum: 1,
                           isDone: true,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=9COxY1Em0RI')),
                         ),
                         SeassionCard(
                           sessionNum: 2,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=rKT5vVR1V1I')),
                         ),
                         SeassionCard(
                           sessionNum: 3,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=EDMLS6y3WaI')),
                         ),
                         SeassionCard(
                           sessionNum: 4,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=W5N0AytiUk4')),
                         ),
                         SeassionCard(
                           sessionNum: 5,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=thcEuMDWxoI')),
                         ),
                         SeassionCard(
                           sessionNum: 6,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=7vrWhr7Wyzc')),
                         ),
                       ],
                     ),
@@ -181,7 +181,7 @@ class SeassionCard extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: press,
+              onTap: () => press(),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(

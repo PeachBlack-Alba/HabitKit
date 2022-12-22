@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:habit_kit/constants.dart';
 import 'package:habit_kit/widgets/bottom_nav_bar.dart';
 import 'package:habit_kit/widgets/search_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class YogaScreen extends StatelessWidget {
   @override
@@ -61,27 +62,28 @@ class YogaScreen extends StatelessWidget {
                         SessionCard(
                           sessionNum: 1,
                           isDone: true,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=jHZPtn15agE')),
                         ),
                         SessionCard(
                           sessionNum: 2,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=x0nZ1ZLephQ')),
                         ),
                         SessionCard(
                           sessionNum: 3,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=CqnWMPuyT0g')),
                         ),
                         SessionCard(
                           sessionNum: 4,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=tL5xfikyJgI')),
                         ),
                         SessionCard(
                           sessionNum: 5,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=OMu6OKF5Z1k')),
                         ),
                         SessionCard(
                           sessionNum: 6,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse(
+                              'https://www.youtube.com/watch?v=eqQUFdQpqiI&list=PLui6Eyny-UzwheLDyEScgdgbh7z3FgNCX')),
                         ),
                       ],
                     ),
@@ -180,7 +182,7 @@ class SessionCard extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: press,
+              onTap: () => press(),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(

@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:habit_kit/constants.dart';
 import 'package:habit_kit/widgets/bottom_nav_bar.dart';
 import 'package:habit_kit/widgets/search_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DietScreen extends StatelessWidget {
   @override
@@ -48,7 +49,6 @@ class DietScreen extends StatelessWidget {
                       child: Text(
                         "Try these recipes",
                         style: TextStyle(fontWeight: FontWeight.bold, color: kActiveIconColor),
-
                       ),
                     ),
                     SizedBox(
@@ -62,27 +62,27 @@ class DietScreen extends StatelessWidget {
                         RecipeCard(
                           recipeNum: 1,
                           isDone: true,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=GdcCVZ_D7hQ')),
                         ),
                         RecipeCard(
                           recipeNum: 2,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=i_G252P8Uxw')),
                         ),
                         RecipeCard(
                           recipeNum: 3,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=_EAl4ZMHpHI')),
                         ),
                         RecipeCard(
                           recipeNum: 4,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=jpfYDzOm6us')),
                         ),
                         RecipeCard(
                           recipeNum: 5,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=YNJYPv2t6-c')),
                         ),
                         RecipeCard(
                           recipeNum: 6,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=iTfwQKbQc3g')),
                         ),
                       ],
                     ),
@@ -181,7 +181,7 @@ class RecipeCard extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: press,
+              onTap: () => press(),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(

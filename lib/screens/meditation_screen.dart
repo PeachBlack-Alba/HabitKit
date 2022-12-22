@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:habit_kit/constants.dart';
 import 'package:habit_kit/widgets/bottom_nav_bar.dart';
 import 'package:habit_kit/widgets/search_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MeditationScreen extends StatelessWidget {
   @override
@@ -48,7 +49,6 @@ class MeditationScreen extends StatelessWidget {
                       child: Text(
                         "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
                         style: TextStyle(fontWeight: FontWeight.bold, color: kActiveIconColor),
-
                       ),
                     ),
                     SizedBox(
@@ -59,30 +59,31 @@ class MeditationScreen extends StatelessWidget {
                       spacing: 20,
                       runSpacing: 20,
                       children: <Widget>[
-                        SeassionCard(
+                        SessionCard(
                           sessionNum: 1,
                           isDone: true,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=jHZPtn15agE')),
                         ),
-                        SeassionCard(
+                        SessionCard(
                           sessionNum: 2,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=x0nZ1ZLephQ')),
                         ),
-                        SeassionCard(
+                        SessionCard(
                           sessionNum: 3,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=CqnWMPuyT0g')),
                         ),
-                        SeassionCard(
+                        SessionCard(
                           sessionNum: 4,
-                          press: () {},
+                          press:() => launchUrl(Uri.parse('https://www.youtube.com/watch?v=tL5xfikyJgI')),
                         ),
-                        SeassionCard(
+                        SessionCard(
                           sessionNum: 5,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse('https://www.youtube.com/watch?v=OMu6OKF5Z1k')),
                         ),
-                        SeassionCard(
+                        SessionCard(
                           sessionNum: 6,
-                          press: () {},
+                          press: () => launchUrl(Uri.parse(
+                              'https://www.youtube.com/watch?v=eqQUFdQpqiI&list=PLui6Eyny-UzwheLDyEScgdgbh7z3FgNCX')),
                         ),
                       ],
                     ),
@@ -147,12 +148,12 @@ class MeditationScreen extends StatelessWidget {
   }
 }
 
-class SeassionCard extends StatelessWidget {
+class SessionCard extends StatelessWidget {
   final int sessionNum;
   final bool isDone;
   final Function press;
 
-  const SeassionCard({
+  const SessionCard({
     Key key,
     this.sessionNum,
     this.isDone = false,
@@ -181,7 +182,7 @@ class SeassionCard extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: press,
+              onTap: () => press(),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
