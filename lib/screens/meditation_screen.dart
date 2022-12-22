@@ -4,7 +4,7 @@ import 'package:habit_kit/constants.dart';
 import 'package:habit_kit/widgets/bottom_nav_bar.dart';
 import 'package:habit_kit/widgets/search_bar.dart';
 
-class DetailsScreen extends StatelessWidget {
+class MeditationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -15,9 +15,9 @@ class DetailsScreen extends StatelessWidget {
           Container(
             height: size.height * .45,
             decoration: BoxDecoration(
-              color: kBlueLightColor,
+              color: kBackgroundColor,
               image: DecorationImage(
-                image: AssetImage("assets/images/meditation_bg.png"),
+                image: AssetImage("assets/icons/meditation.png"),
                 fit: BoxFit.fitWidth,
               ),
             ),
@@ -32,23 +32,23 @@ class DetailsScreen extends StatelessWidget {
                     SizedBox(
                       height: size.height * 0.05,
                     ),
-                    Text(
-                      "Meditation",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline4
-                          .copyWith(fontWeight: FontWeight.w900),
-                    ),
+                    Text("Meditation",
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6
+                            .copyWith(fontWeight: FontWeight.bold, color: kActiveIconColor)),
                     SizedBox(height: 10),
                     Text(
                       "3-10 MIN Course",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(fontWeight: FontWeight.bold, color: kActiveIconColor),
                     ),
                     SizedBox(height: 10),
                     SizedBox(
                       width: size.width * .6, // it just take 60% of total width
                       child: Text(
                         "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
+                        style: TextStyle(fontWeight: FontWeight.bold, color: kActiveIconColor),
+
                       ),
                     ),
                     SizedBox(
@@ -60,39 +60,39 @@ class DetailsScreen extends StatelessWidget {
                       runSpacing: 20,
                       children: <Widget>[
                         SeassionCard(
-                          seassionNum: 1,
+                          sessionNum: 1,
                           isDone: true,
                           press: () {},
                         ),
                         SeassionCard(
-                          seassionNum: 2,
+                          sessionNum: 2,
                           press: () {},
                         ),
                         SeassionCard(
-                          seassionNum: 3,
+                          sessionNum: 3,
                           press: () {},
                         ),
                         SeassionCard(
-                          seassionNum: 4,
+                          sessionNum: 4,
                           press: () {},
                         ),
                         SeassionCard(
-                          seassionNum: 5,
+                          sessionNum: 5,
                           press: () {},
                         ),
                         SeassionCard(
-                          seassionNum: 6,
+                          sessionNum: 6,
                           press: () {},
                         ),
                       ],
                     ),
                     SizedBox(height: 20),
                     Text(
-                      "Meditation",
+                      "Today's meditation session",
                       style: Theme.of(context)
                           .textTheme
                           .headline6
-                          .copyWith(fontWeight: FontWeight.bold),
+                          .copyWith(fontWeight: FontWeight.bold, color: kActiveIconColor),
                     ),
                     Container(
                       margin: EdgeInsets.symmetric(vertical: 20),
@@ -112,8 +112,8 @@ class DetailsScreen extends StatelessWidget {
                       ),
                       child: Row(
                         children: <Widget>[
-                          SvgPicture.asset(
-                            "assets/icons/Meditation_women_small.svg",
+                          Image.asset(
+                            "assets/icons/meditation.png",
                           ),
                           SizedBox(width: 20),
                           Expanded(
@@ -148,12 +148,13 @@ class DetailsScreen extends StatelessWidget {
 }
 
 class SeassionCard extends StatelessWidget {
-  final int seassionNum;
+  final int sessionNum;
   final bool isDone;
   final Function press;
+
   const SeassionCard({
     Key key,
-    this.seassionNum,
+    this.sessionNum,
     this.isDone = false,
     this.press,
   }) : super(key: key);
@@ -164,8 +165,7 @@ class SeassionCard extends StatelessWidget {
       return ClipRRect(
         borderRadius: BorderRadius.circular(13),
         child: Container(
-          width: constraint.maxWidth / 2 -
-              10, // constraint.maxWidth provide us the available with for this widget
+          width: constraint.maxWidth / 2 - 10, // constraint.maxWidth provide us the available with for this widget
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(13),
@@ -201,7 +201,7 @@ class SeassionCard extends StatelessWidget {
                     ),
                     SizedBox(width: 10),
                     Text(
-                      "Session $seassionNum",
+                      "Session $sessionNum",
                       style: Theme.of(context).textTheme.subtitle1,
                     )
                   ],

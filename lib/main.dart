@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:habit_kit/constants.dart';
-import 'package:habit_kit/screens/details_screen.dart';
+import 'package:habit_kit/screens/diet_screen.dart';
+import 'package:habit_kit/screens/exercise_screen.dart';
+import 'package:habit_kit/screens/meditation_screen.dart';
+import 'package:habit_kit/screens/yoga_screen.dart';
 import 'package:habit_kit/widgets/bottom_nav_bar.dart';
 import 'package:habit_kit/widgets/category_card.dart';
 import 'package:habit_kit/widgets/search_bar.dart';
@@ -16,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Meditation App',
+      title: 'Habit Kit App',
       theme: ThemeData(
         fontFamily: "Cairo",
         scaffoldBackgroundColor: kBackgroundColor,
@@ -40,7 +43,7 @@ class HomeScreen extends StatelessWidget {
             // Here the height of the container is 45% of our total height
             height: size.height * .45,
             decoration: const BoxDecoration(
-              color: Color(0xFFF5CEB8),
+              color: kBackgroundColor,
               image: DecorationImage(
                 alignment: Alignment.centerLeft,
                 image: AssetImage("assets/images/undraw_pilates_gpdb.png"),
@@ -60,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                       height: 52,
                       width: 52,
                       decoration: BoxDecoration(
-                        color: Color(0xFFF2BEA1),
+                        color: kBlueColor,
                         shape: BoxShape.circle,
                       ),
                       child: SvgPicture.asset("assets/icons/menu.svg"),
@@ -71,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .headline4
-                        ?.copyWith(fontWeight: FontWeight.w900),
+                        ?.copyWith(fontWeight: FontWeight.w900, color: kActiveIconColor),
                   ),
                   SearchBar(),
                   Expanded(
@@ -82,31 +85,52 @@ class HomeScreen extends StatelessWidget {
                       mainAxisSpacing: 20,
                       children: <Widget>[
                         CategoryCard(
-                          title: "Diet Recommendation",
-                          svgSrc: "assets/icons/Hamburger.svg",
-                          press: () {},
-                        ),
-                        CategoryCard(
-                          title: "Exercises Recommendations",
-                          svgSrc: "assets/icons/Excrecises.svg",
-                          press: () {},
-                        ),
-                        CategoryCard(
-                          title: "Meditation",
-                          svgSrc: "assets/icons/Meditation.svg",
+                          title: "Diet",
+                          imgSRC: "assets/icons/diet.png",
                           press: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return DetailsScreen();
+                                return DietScreen();
+                              }),
+                            );
+                          },
+                        ),
+                        CategoryCard(
+                          title: "Exercises",
+                          imgSRC: "assets/icons/running.png",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return ExerciseScreen();
+                              }),
+                            );
+                          },
+                        ),
+                        CategoryCard(
+                          title: "Meditation",
+                          imgSRC: "assets/icons/meditation.png",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return MeditationScreen();
                               }),
                             );
                           },
                         ),
                         CategoryCard(
                           title: "Yoga",
-                          svgSrc: "assets/icons/yoga.svg",
-                          press: () {},
+                          imgSRC: "assets/icons/yoga.png",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return YogaScreen();
+                              }),
+                            );
+                          },
                         ),
                       ],
                     ),

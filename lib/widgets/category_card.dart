@@ -3,12 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:habit_kit/constants.dart';
 
 class CategoryCard extends StatelessWidget {
-  final String svgSrc;
+  final String imgSRC;
   final String title;
   final Function press;
   const CategoryCard({
     Key key,
-    this.svgSrc,
+    this.imgSRC,
     this.title,
     this.press,
   }) : super(key: key);
@@ -18,9 +18,8 @@ class CategoryCard extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(13),
       child: Container(
-        // padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: kBackgroundColor,
           borderRadius: BorderRadius.circular(13),
           boxShadow: [
             BoxShadow(
@@ -40,7 +39,7 @@ class CategoryCard extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Spacer(),
-                  SvgPicture.asset(svgSrc),
+                  Image.asset(imgSRC),
                   Spacer(),
                   Text(
                     title,
@@ -48,7 +47,7 @@ class CategoryCard extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .headline6
-                        .copyWith(fontSize: 15),
+                        .copyWith(fontSize: 15, color: kTextColor),
                   )
                 ],
               ),
