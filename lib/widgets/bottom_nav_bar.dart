@@ -13,7 +13,7 @@ class BottomNavBar extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
       height: 80,
-      color: kBackgroundColor,
+      color: backgroundColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -58,11 +58,11 @@ class BottomNavItem extends StatelessWidget {
         children: <Widget>[
           SvgPicture.asset(
             svgScr,
-            color: isActive ? kActiveIconColor : kBlueColor,
+            color: isActive ? activeIconColor : blueColor,
           ),
           Text(
             title,
-            style: TextStyle(color: isActive ? kActiveIconColor : kBlueColor),
+            style: TextStyle(color: isActive ? activeIconColor : blueColor),
           ),
         ],
       ),

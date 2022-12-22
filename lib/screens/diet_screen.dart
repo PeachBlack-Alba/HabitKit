@@ -16,7 +16,7 @@ class DietScreen extends StatelessWidget {
           Container(
             height: size.height * .45,
             decoration: BoxDecoration(
-              color: kBackgroundColor,
+              color: backgroundColor,
               image: DecorationImage(
                 image: AssetImage("assets/icons/diet.png"),
                 fit: BoxFit.fitWidth,
@@ -37,18 +37,18 @@ class DietScreen extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .headline6
-                            .copyWith(fontWeight: FontWeight.bold, color: kActiveIconColor)),
+                            .copyWith(fontWeight: FontWeight.bold, color: activeIconColor)),
                     SizedBox(height: 10),
                     Text(
                       "Your healthy lunch",
-                      style: TextStyle(fontWeight: FontWeight.bold, color: kActiveIconColor),
+                      style: TextStyle(fontWeight: FontWeight.bold, color: activeIconColor),
                     ),
                     SizedBox(height: 10),
                     SizedBox(
                       width: size.width * .6, // it just take 60% of total width
                       child: Text(
                         "Try these recipes",
-                        style: TextStyle(fontWeight: FontWeight.bold, color: kActiveIconColor),
+                        style: TextStyle(fontWeight: FontWeight.bold, color: activeIconColor),
                       ),
                     ),
                     SizedBox(
@@ -92,7 +92,7 @@ class DietScreen extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .headline6
-                          .copyWith(fontWeight: FontWeight.bold, color: kActiveIconColor),
+                          .copyWith(fontWeight: FontWeight.bold, color: activeIconColor),
                     ),
                     Container(
                       margin: EdgeInsets.symmetric(vertical: 20),
@@ -106,7 +106,7 @@ class DietScreen extends StatelessWidget {
                             offset: Offset(0, 17),
                             blurRadius: 23,
                             spreadRadius: -13,
-                            color: kShadowColor,
+                            color: shadowColor,
                           ),
                         ],
                       ),
@@ -167,14 +167,14 @@ class RecipeCard extends StatelessWidget {
         child: Container(
           width: constraint.maxWidth / 2 - 10, // constraint.maxWidth provide us the available with for this widget
           decoration: BoxDecoration(
-            color: kTextColor,
+            color: textColor,
             borderRadius: BorderRadius.circular(13),
             boxShadow: [
               BoxShadow(
                 offset: Offset(0, 17),
                 blurRadius: 23,
                 spreadRadius: -13,
-                color: kShadowColor,
+                color: shadowColor,
               ),
             ],
           ),
@@ -190,13 +190,13 @@ class RecipeCard extends StatelessWidget {
                       height: 42,
                       width: 43,
                       decoration: BoxDecoration(
-                        color: isDone ? kBlueColor : kTextColor,
+                        color: isDone ? blueColor : textColor,
                         shape: BoxShape.circle,
-                        border: Border.all(color: kBlueColor),
+                        border: Border.all(color: blueColor),
                       ),
                       child: Icon(
                         Icons.play_arrow,
-                        color: isDone ? kTextColor : kBlueColor,
+                        color: isDone ? textColor : blueColor,
                       ),
                     ),
                     SizedBox(width: 10),

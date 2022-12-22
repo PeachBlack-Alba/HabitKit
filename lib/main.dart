@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
       title: 'Habit Kit App',
       theme: ThemeData(
         fontFamily: "Cairo",
-        scaffoldBackgroundColor: kBackgroundColor,
-        textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
+        scaffoldBackgroundColor: backgroundColor,
+        textTheme: Theme.of(context).textTheme.apply(displayColor: textColor),
       ),
       home: HomeScreen(),
     );
@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
             // Here the height of the container is 45% of our total height
             height: size.height * .45,
             decoration: const BoxDecoration(
-              color: kBackgroundColor,
+              color: backgroundColor,
               image: DecorationImage(
                 alignment: Alignment.centerLeft,
                 image: AssetImage("assets/images/undraw_pilates_gpdb.png"),
@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                       height: 52,
                       width: 52,
                       decoration: BoxDecoration(
-                        color: kBlueColor,
+                        color: blueColor,
                         shape: BoxShape.circle,
                       ),
                       child: SvgPicture.asset("assets/icons/menu.svg"),
@@ -74,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .headline4
-                        ?.copyWith(fontWeight: FontWeight.w900, color: kActiveIconColor),
+                        ?.copyWith(fontWeight: FontWeight.w900, color: activeIconColor),
                   ),
                   SearchBar(),
                   Expanded(

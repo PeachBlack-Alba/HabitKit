@@ -16,7 +16,7 @@ class MeditationScreen extends StatelessWidget {
           Container(
             height: size.height * .45,
             decoration: BoxDecoration(
-              color: kBackgroundColor,
+              color: backgroundColor,
               image: DecorationImage(
                 image: AssetImage("assets/icons/meditation.png"),
                 fit: BoxFit.fitWidth,
@@ -37,18 +37,18 @@ class MeditationScreen extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .headline6
-                            .copyWith(fontWeight: FontWeight.bold, color: kActiveIconColor)),
+                            .copyWith(fontWeight: FontWeight.bold, color: activeIconColor)),
                     SizedBox(height: 10),
                     Text(
                       "3-10 MIN Course",
-                      style: TextStyle(fontWeight: FontWeight.bold, color: kActiveIconColor),
+                      style: TextStyle(fontWeight: FontWeight.bold, color: activeIconColor),
                     ),
                     SizedBox(height: 10),
                     SizedBox(
                       width: size.width * .6, // it just take 60% of total width
                       child: Text(
                         "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
-                        style: TextStyle(fontWeight: FontWeight.bold, color: kActiveIconColor),
+                        style: TextStyle(fontWeight: FontWeight.bold, color: activeIconColor),
                       ),
                     ),
                     SizedBox(
@@ -93,7 +93,7 @@ class MeditationScreen extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .headline6
-                          .copyWith(fontWeight: FontWeight.bold, color: kActiveIconColor),
+                          .copyWith(fontWeight: FontWeight.bold, color: activeIconColor),
                     ),
                     Container(
                       margin: EdgeInsets.symmetric(vertical: 20),
@@ -107,7 +107,7 @@ class MeditationScreen extends StatelessWidget {
                             offset: Offset(0, 17),
                             blurRadius: 23,
                             spreadRadius: -13,
-                            color: kShadowColor,
+                            color: shadowColor,
                           ),
                         ],
                       ),
@@ -175,7 +175,7 @@ class SessionCard extends StatelessWidget {
                 offset: Offset(0, 17),
                 blurRadius: 23,
                 spreadRadius: -13,
-                color: kShadowColor,
+                color: shadowColor,
               ),
             ],
           ),
@@ -191,13 +191,13 @@ class SessionCard extends StatelessWidget {
                       height: 42,
                       width: 43,
                       decoration: BoxDecoration(
-                        color: isDone ? kBlueColor : Colors.white,
+                        color: isDone ? blueColor : Colors.white,
                         shape: BoxShape.circle,
-                        border: Border.all(color: kBlueColor),
+                        border: Border.all(color: blueColor),
                       ),
                       child: Icon(
                         Icons.play_arrow,
-                        color: isDone ? Colors.white : kBlueColor,
+                        color: isDone ? Colors.white : blueColor,
                       ),
                     ),
                     SizedBox(width: 10),
